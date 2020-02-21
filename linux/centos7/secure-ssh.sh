@@ -8,7 +8,10 @@ sudo -i
 read -p "Enter user name" username
 useradd $username
 mkdir /home/$username/.ssh
-echo "enter as path '/home/YourUserName/.ssh/authorized_keys'"
-ssh-keygen -t rsa
+cp SYS265/linux/public-keys/id_rsa.pub /home/$username/.ssh/authorized_keys
+chmod 700 /home/$username/.ssh
+chmod 600 /home/$username/.ssh/authorized_keys
+chown -R $username:$username /home/$username/.ssh
+echo $username "complete"
 
 
